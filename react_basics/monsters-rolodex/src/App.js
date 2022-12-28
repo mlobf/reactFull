@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -9,24 +9,38 @@ class App extends Component {
         this.state = {
             monsters: [],
         };
+        console.log('constructor');
     }
     componentDidMount() {
+        console.log('componentDidMount');
         fetch('https://jsonplaceholder.typicode.com/users')
             .then((response) => response.json())
             .then((users) => {
-                this.setState(() => {
-                    return { monsters: users };
-                }),
+                this.setState(
+                    () => {
+                        return { monsters: users };
+                    },
                     () => {
                         console.log(this.state);
-                    };
+                    }
+                );
             });
     }
     // Event Handler
     //  Basic Concept => Is something that I want to happen ever a event happen
     render() {
+        console.log('render');
         return (
             <div className="App">
+                <input
+                    className="search-box"
+                    type="search"
+                    placeholder="monster"
+                    onChange={(event) => {
+                        console.log(event.target.value);
+                    }}
+                />
+                ;
                 <h1>
                     {this.state.monsters.map((monster) => {
                         return (
