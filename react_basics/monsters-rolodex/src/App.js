@@ -7,14 +7,20 @@ class App extends Component {
     constructor() {
         super(); //Call the underline constructor of all classes that we are extended from...
         this.state = {
-            monsters: [
-                { name: 'Marcos', id: '123kajkdj' },
-                { name: 'Linda', id: 'fkjalfjale1' },
-                { name: 'Franky', id: 'ieorwjer ' },
-                { name: 'Jacky', id: 'asfkjalsjf 323' },
-                { name: 'Andrea', id: '123kajkdj' },
-            ],
+            monsters: [],
         };
+    }
+    componentDidMount() {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then((response) => response.json())
+            .then((users) => {
+                this.setState(() => {
+                    return { monsters: users };
+                }),
+                    () => {
+                        console.log(this.state);
+                    };
+            });
     }
     // Event Handler
     //  Basic Concept => Is something that I want to happen ever a event happen
