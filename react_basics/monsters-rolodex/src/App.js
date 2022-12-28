@@ -8,10 +8,11 @@ class App extends Component {
         super(); //Call the underline constructor of all classes that we are extended from...
         this.state = {
             monsters: [
-                { name: 'Linda' },
-                { name: 'Franky' },
-                { name: 'Jacky' },
-                { name: 'Andrea' },
+                { name: 'Marcos', id: '123kajkdj' },
+                { name: 'Linda', id: 'fkjalfjale1' },
+                { name: 'Franky', id: 'ieorwjer ' },
+                { name: 'Jacky', id: 'asfkjalsjf 323' },
+                { name: 'Andrea', id: '123kajkdj' },
             ],
         };
     }
@@ -22,7 +23,11 @@ class App extends Component {
             <div className="App">
                 <h1>
                     {this.state.monsters.map((monster) => {
-                        return <h1>{monster.name}</h1>;
+                        return (
+                            <div key={monster.id}>
+                                <h1>{monster.name}</h1>
+                            </div>
+                        );
                     })}
                 </h1>
             </div>
