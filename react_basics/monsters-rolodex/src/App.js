@@ -7,8 +7,12 @@ class App extends Component {
     constructor() {
         super(); //Call the underline constructor of all classes that we are extended from...
         this.state = {
-            name: { firstName: 'Marcos', lastName: 'Filho' },
-            company: 'Kiowaki',
+            monsters: [
+                { name: 'Linda' },
+                { name: 'Franky' },
+                { name: 'Jacky' },
+                { name: 'Andrea' },
+            ],
         };
     }
     // Event Handler
@@ -16,36 +20,11 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p>
-                        Hi my name is {this.state.name.firstName} and I work at
-                        {this.state.company}
-                    </p>
-                    <button
-                        onClick={() => {
-                            this.setState(
-                                // This is the main function
-                                () => {
-                                    return {
-                                        name: {
-                                            firstName: 'Lin',
-                                            lastName: 'Oliveira',
-                                        },
-                                    };
-                                },
-                                // Now the callback function
-                                //  once the main function finish, this callback shall be executed
-                                () => {
-                                    console.log(this.state);
-                                }
-                            );
-                            console.log(this.state);
-                        }}
-                    >
-                        Change Name
-                    </button>
-                </header>
+                <h1>
+                    {this.state.monsters.map((monster) => {
+                        return <h1>{monster.name}</h1>;
+                    })}
+                </h1>
             </div>
         );
     }
