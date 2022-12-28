@@ -24,12 +24,23 @@ class App extends Component {
                     </p>
                     <button
                         onClick={() => {
-                            this.setState({
-                                name: {
-                                    firstName: 'Lin',
-                                    lastName: 'Oliveira',
+                            this.setState(
+                                // This is the main function
+                                () => {
+                                    return {
+                                        name: {
+                                            firstName: 'Lin',
+                                            lastName: 'Oliveira',
+                                        },
+                                    };
                                 },
-                            });
+                                // Now the callback function
+                                //  once the main function finish, this callback shall be executed
+                                () => {
+                                    console.log(this.state);
+                                }
+                            );
+                            console.log(this.state);
                         }}
                     >
                         Change Name
