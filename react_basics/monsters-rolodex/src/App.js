@@ -43,14 +43,7 @@ class App extends Component {
           onChange={onSearchChange}
         />
         <h1>
-          <CardList />
-          {/*filteredMonsters.map((monster) => {
-            return (
-              <div key={monster.id}>
-                <h4>{monster.name}</h4>
-              </div>
-            );
-          })*/}
+          <CardList monsters={filteredMonsters} />
         </h1>
       </div>
     );
